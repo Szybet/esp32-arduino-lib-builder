@@ -7,7 +7,8 @@ build_archive_path="dist/arduino-esp32-build-$TARGET-$idf_version_string.tar.gz"
 pio_archive_path="dist/framework-arduinoespressif32-$TARGET-$idf_version_string.tar.gz"
 pio_zip_archive_path="dist/framework-arduinoespressif32-$TARGET-$idf_version_string.zip"
 
-mkdir -p dist && rm -rf "$archive_path" "$build_archive_path"
+rm -rf dist
+mkdir -p dist
 
 cd out
 echo "Creating PlatformIO Tasmota framework-arduinoespressif32"
