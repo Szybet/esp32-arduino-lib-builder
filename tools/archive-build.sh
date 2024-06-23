@@ -52,8 +52,16 @@ rm -rf arduino-esp32/boards.txt
 rm -rf arduino-esp32/package.json
 rm -rf arduino-esp32/*.md
 cp -rf tools/esp32-arduino-libs arduino-esp32/tools/
-cp ../package.json arduino-esp32/package.json
-cp ../core_version.h arduino-esp32/cores/esp32/core_version.h
+cp /app/esp32-arduino-lib-builder/out/tools/esp32-arduino-libs/package.json arduino-esp32/package.json
+
+#cp ../core_version.h arduino-esp32/cores/esp32/core_version.h
+rm -rf arduino-esp32/cores/esp32/core_version.h
+touch arduino-esp32/cores/esp32/core_version.h
+echo "#define ARDUINO_ESP32_GIT_VER 0xa92d49f" >> arduino-esp32/cores/esp32/core_version.h
+echo "#define ARDUINO_ESP32_GIT_DESC 3.0.2" >> arduino-esp32/cores/esp32/core_version.h
+echo "#define ARDUINO_ESP32_RELEASE_3_0_2" >> arduino-esp32/cores/esp32/core_version.h
+echo "#define ARDUINO_ESP32_RELEASE "3_0_2"" >> arduino-esp32/cores/esp32/core_version.h
+
 mv arduino-esp32/ framework-arduinoespressif32/
 cd framework-arduinoespressif32/libraries
 rm -rf **/examples
