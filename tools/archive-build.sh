@@ -71,4 +71,5 @@ rm -rf **/flags
 cd ../../../
 # If the framework is needed as tar.gz uncomment next line
 # tar --exclude=.* -zcf ../$pio_archive_path framework-arduinoespressif32/
+rm -rf ../$pio_zip_archive_path
 7z a -mx=9 -tzip -xr'!.*' ../$pio_zip_archive_path framework-arduinoespressif32/
