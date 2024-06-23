@@ -62,6 +62,7 @@ echo "#define ARDUINO_ESP32_GIT_DESC 3.0.2" >> arduino-esp32/cores/esp32/core_ve
 echo "#define ARDUINO_ESP32_RELEASE_3_0_2" >> arduino-esp32/cores/esp32/core_version.h
 echo "#define ARDUINO_ESP32_RELEASE "3_0_2"" >> arduino-esp32/cores/esp32/core_version.h
 
+rm -rf framework-arduinoespressif32/
 mv arduino-esp32/ framework-arduinoespressif32/
 cd framework-arduinoespressif32/libraries
 rm -rf **/examples
