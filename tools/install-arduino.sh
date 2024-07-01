@@ -41,9 +41,9 @@ fi
 
 if [ "$AR_BRANCH" ]; then
 	echo "AR_BRANCH='$AR_BRANCH'"
-	git -C "$AR_COMPS/arduino" checkout "$AR_BRANCH" && \
-	git -C "$AR_COMPS/arduino" fetch && \
-	git -C "$AR_COMPS/arduino" pull --ff-only
+	git -C "$AR_COMPS/arduino" checkout "$AR_BRANCH"
+	git -C "$AR_COMPS/arduino" fetch
+	git -C "$AR_COMPS/arduino" pull --ff-only || true
 fi
 if [ $? -ne 0 ]; then exit 1; fi
 
@@ -55,8 +55,8 @@ if [ ! -d "$IDF_LIBS_DIR" ]; then
 	git clone "$AR_LIBS_REPO_URL" "$IDF_LIBS_DIR"
 else
 	echo "Updating esp32-arduino-libs..."
-	git -C "$IDF_LIBS_DIR" fetch && \
-	git -C "$IDF_LIBS_DIR" pull --ff-only
+	git -C "$IDF_LIBS_DIR" fetch
+	git -C "$IDF_LIBS_DIR" pull --ff-only || true
 fi
 if [ $? -ne 0 ]; then exit 1; fi
 
